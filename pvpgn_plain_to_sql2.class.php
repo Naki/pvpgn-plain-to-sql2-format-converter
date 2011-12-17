@@ -321,6 +321,10 @@ class pvpgn_plain_to_sql2 {
                     elseif(($matches['var_type'] == "BNET") && ($matches['var_name'] == "acct\\userid")) {
                         $id_user = $matches['value'];
                     }
+                    // User username
+                    elseif(($matches['var_type'] == "BNET") && ($matches['var_name'] == "acct\\username")) {
+                        $parsed_data[$matches['var_type']]['username'] = strtolower($matches['value']);
+                    }
                     // Clean field
                     elseif(($matches['var_type'] == "BNET") && ($matches['var_name'] == "acct\\lastlogin_owner")) {
                         $matches['value'] = $this->clean_profile_fields($matches['value']);
